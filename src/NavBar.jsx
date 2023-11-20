@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 class NavBar extends Component {
   render() {
     return (
@@ -9,6 +10,7 @@ class NavBar extends Component {
             <a className="navbar-brand" href="/#">
               Website Name
             </a>
+            
             <button
               className="navbar-toggler"
               type="button"
@@ -49,3 +51,6 @@ class NavBar extends Component {
 }
 
 export default NavBar;
+
+
+// for the push Aleska, feel free to delete this comment
