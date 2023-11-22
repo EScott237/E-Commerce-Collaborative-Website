@@ -51,6 +51,3 @@ class NavBar extends Component {
 }
 
 export default NavBar;
-
-
-// for the push Aleska, feel free to delete this comment
