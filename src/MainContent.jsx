@@ -5,11 +5,11 @@ export default class MainContent extends Component{
         pageTitle: "Customers", 
         customersCount:5,
         customers:[
-            {id:1, name: "Scott",phone:"111-111",address:{city:"Miami"}},
-            {id:2, name: "Jones",phone:"222-222",address:{city:"New York"}},
-            {id:3, name: "Allen",phone:"333-333",address:{city:"California"}},
-            {id:4, name: "James",phone:null,address:{city:"Washington"}},
-            {id:5, name: "John",phone:null,address:{city:"Texas"}}
+            {id:1, name: "Scott",phone:"111-111",address:{city:"Miami"},photo:"http://picsum.photos/id/1000/60"},
+            {id:2, name: "Jones",phone:"222-222",address:{city:"New York"},photo:"http://picsum.photos/id/1015/60"},
+            {id:3, name: "Allen",phone:"333-333",address:{city:"California"},photo:"http://picsum.photos/id/1003/60"},
+            {id:4, name: "James",phone:null,address:{city:"Washington"},photo:"http://picsum.photos/id/1019/60"},
+            {id:5, name: "John",phone:null,address:{city:"Texas"},photo:"http://picsum.photos/id/1002/60"}
         ]
     };
 
@@ -26,6 +26,7 @@ export default class MainContent extends Component{
                 <thead>
                     <tr>
                         <th>#</th>
+                        <th>Photo</th>
                         <th>Customer Name</th>
                         <th>Phone</th>
                         <th>City</th>
@@ -55,6 +56,7 @@ export default class MainContent extends Component{
             return(
                 <tr key={cust.id}>
                     <td>{cust.id}</td>
+                    <td><img src={cust.photo} alt="Customer"/></td>
                     <td>{cust.name}</td>
                     <td>{this.getPhoneToRender(cust.phone)}</td>
                     <td>{cust.address.city}</td>
