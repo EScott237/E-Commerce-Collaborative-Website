@@ -74,12 +74,9 @@ export default class MainContent extends Component{
         );
     }
 
-};
-
-
- //Executes when the user clicks on "Change Picture" button in the grid
+//Executes when the user clicks on "Change Picture" button in the grid
   //Receives the "customer" object and index of the currently clicked customer
-  onChangePictureClick = (cust, index) => {
+  onChangePictureClick = (custArr, index) => {
     //console.log(cust);
     //console.log(index);
 
@@ -90,5 +87,11 @@ export default class MainContent extends Component{
     //update "customers" array in the state
     this.setState({ customers: custArr });
   };
+
+
+};
+
+
+
 
 
