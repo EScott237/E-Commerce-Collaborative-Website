@@ -13,6 +13,9 @@ export default class MainContent extends Component{
         ]
     };
 
+
+
+
     render(){
         return (
         <div>
@@ -52,12 +55,16 @@ export default class MainContent extends Component{
     }
 
     getCustomerRow = () => {
-        return( this.state.customers.map((cust)=>{
+        return( this.state.customers.map((cust, index)=>{
             return(
                 <tr key={cust.id}>
                     <td>{cust.id}</td>
-                    <td><img src={cust.photo} alt="Customer"/></td>
-                    <td>{cust.name}</td>
+                    <td><img src={cust.photo} alt="Customer"/>
+                    <div>
+                        <button className="btn btn-sm btn-secondary" onClick={() => {this.onChangePictureClick(cust,index);}}>Change Picture</button>
+                    </div>
+                    </td>
+                    <td >{cust.name}</td>
                     <td>{this.getPhoneToRender(cust.phone)}</td>
                     <td>{cust.address.city}</td>
                 </tr>  
@@ -68,3 +75,20 @@ export default class MainContent extends Component{
     }
 
 };
+
+
+ //Executes when the user clicks on "Change Picture" button in the grid
+  //Receives the "customer" object and index of the currently clicked customer
+  onChangePictureClick = (cust, index) => {
+    //console.log(cust);
+    //console.log(index);
+
+    //get existing customers
+    var custArr = this.state.customers;
+    custArr[index].photo = "https://picsum.photos/id/104/60";
+
+    //update "customers" array in the state
+    this.setState({ customers: custArr });
+  };
+
+

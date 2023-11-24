@@ -1,3 +1,13 @@
 .highlight{
 background-color: #0e211e;}
 
+.green-highlight {
+    color: green;
+    font-size: 40px;
+}
+
+.red-highlight {
+    color: red;
+    font-size: 25px;
+}
+
