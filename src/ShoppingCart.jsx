@@ -11,7 +11,7 @@ export default class ShoppingCart extends Component{
         //initialization of the state
         this.state = {
             products:[
-                { id: 1, productName: "iPhone", price :8900, quantity: 0 },
+                { id: 1, productName: "iPhone", price:8900, quantity: 0 },
                 { id: 2, productName: "Sony Camera", price :4500, quantity: 0 },
                 { id: 3, productName: "Samsung QLED TV", price :7745, quantity: 0 },
                 { id: 4, productName: "iPad Pro", price :12400, quantity: 0 },
@@ -28,7 +28,8 @@ export default class ShoppingCart extends Component{
                 <h4> Shopping Cart</h4>
                 <div className="row ">
                     {this.state.products.map((prod) =>{
-                    return <Product 
+                    return( 
+                    <Product 
                     key={prod.id} 
                     product={prod}
                     onIncrement= {this.handleIncrement}
@@ -37,9 +38,8 @@ export default class ShoppingCart extends Component{
                     >
 
                 <button className="btn btn-primary">Buy Now</button>
-                </Product>;
-                ;
-    
+                </Product>
+                    );
             })}
             </div>
         </div>
@@ -49,27 +49,40 @@ export default class ShoppingCart extends Component{
 
 //Executes after constructor and render method (includes life cycle of child components, if any) of current component
 componentDidMount(){
+    //fetch data from data source
     console.log("componentDidMount - ShoppingCart");
-//fetch data from data source
 }
 
 componentDidUpdate(prevProps, prevState){
     console.log(
-        "componentDidUpdate", 
+        "componentDidUpdate - ShoppingCart", 
         prevProps, 
         prevState, 
         this.props, 
         this.state
         );
 
-        if (prevProps.x != this.props.x){
-            //make http call
-        }
+        // if (prevProps.x != this.props.x){
+        //     //make http call
+        // }
     }
+
+// Executes when the current instance of current component is being deleted from memory
+componentWillUnmount(){
+    console.log("componentWillUnmount - ShoppingCart")
+}
+
+componentDidCatch(error, info)
+{
+    console.log("componentDidCatch - Shopping Cart");
+    console.log(error,info);
+
+    localStorage.lastError = `${error}\n${JSON.stringify(info)}`;
+}
 
 //executes when the user clicks on + button.
  handleIncrement= (product, maxValue) =>{
-//  console.log("handleIncrement", product);
+    // get index of selected product
  let allProducts = [...this.state.products];
  let index= allProducts.indexOf(product);
 
@@ -82,6 +95,7 @@ componentDidUpdate(prevProps, prevState){
 };
 
  handleDecrement=(product, minValue)=>{
+    // get index of selected product
 let allProducts = [...this.state.products];
 let index= allProducts.indexOf(product);
 
