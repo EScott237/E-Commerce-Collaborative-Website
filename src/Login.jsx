@@ -4,7 +4,7 @@ export default class Login extends Component{
 
 constructor(props){
     super(props);
-    this.state = {email:"abc@test.com", password:"abc123"};
+    this.state = {email:"", password:"",message:""};
 }
     render(){
         return(
@@ -24,12 +24,18 @@ constructor(props){
                 {/* Password starts */}
                 <div className="form-group form-row">
                     <label className="col-lg-4">Password:</label>
-                    <input type="password" className="form-control" value={this.state.password} onChange={(event) => { this.setState({ password:event.target.value })}}/>
+                    <input type="password" className="form-control" 
+                    value={this.state.password} 
+                    onChange={(event) => { this.setState({ password:event.target.value })}}/>
                 </div>
                 {/* Password ends */}
 
                 <div>
-                    <button className="btn btn-primary" onClick={this.onLoginClick}>Login</button>
+                
+                    <button className="btn btn-primary" onClick={this.onLoginClick}>
+                        Login
+                    </button>
+                    {' '}{this.state.message}
                 </div>
             </div>
         );
@@ -39,5 +45,15 @@ constructor(props){
     // Executes when the user clicks on Login
 onLoginClick = () => {
     console.log(this.state);
-};
-}
+    if(
+        this.state.email === 'admin@test.com' && this.state.password === "admin123"
+    ){
+        console.log ("Success")
+        this.setState({message: <span className="text-success">Successfully Logged-in</span>
+    });
+}else{
+        console.log("error")
+        this.setState({message: <span className="text-danger">Invalid Login</span>
+    }
+)};
+}}
