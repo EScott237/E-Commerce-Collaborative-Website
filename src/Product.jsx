@@ -37,13 +37,13 @@ export default class Product extends Component {
         {this.state.product.productName}
         </h5>
 
-<div>${this.props.price} </div> 
+<div>${this.state.product.price} </div> 
 </div>
 {/* card body ends here */}
 
 <div className="card-footer">
     <div className="float-left">
-        <span className="badge">{this.state.product.quantity}</span>
+        <span className="badge text-dark">{this.state.product.quantity}</span>
 
 <div className="btn-group">
 <button 

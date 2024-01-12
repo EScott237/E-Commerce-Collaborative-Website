@@ -48,11 +48,9 @@ onLoginClick = () => {
     if(
         this.state.email === 'admin@test.com' && this.state.password === "admin123"
     ){
-        console.log ("Success")
         this.setState({message: <span className="text-success">Successfully Logged-in</span>
     });
 }else{
-        console.log("error")
         this.setState({message: <span className="text-danger">Invalid Login</span>
     }
 )};
