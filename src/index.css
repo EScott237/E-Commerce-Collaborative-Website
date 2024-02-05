@@ -1,17 +1,17 @@
-.highlight{
-background-color: #0e211e;}
-
-.green-highlight {
+.green-highlight{
     color: green;
     font-size: 40px;
-}
-
-.red-highlight {
+    }
+    
+    .red-highlight{
     color: red;
     font-size: 25px;
-}
-
-.hand-icon {
-    cursor: pointer;
-}
-
+    }
+    
+    .badge{
+        color: black;
+    }
+    
+    .hand-icon{
+        cursor: pointer;
+    }
